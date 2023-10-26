@@ -1,0 +1,1539 @@
+:root {
+    --color-primary: #6f6af8;
+    --color-primary-light: hsla(242, 100%, 65%, 0.5);
+    --color-blue-light: #8ad3f2;
+    --color-primary-variant: #5854c7;
+    --color-red: #da0f3f;
+    --color-red-light: rgba(236, 138, 138, 0.5);
+    --color-red-dark: rgb(189, 4, 81);
+    --color-green: #00c476;
+    --color-green-light: hsl(156, 100%, 38%, 15%);
+    --color-gray-900: #242424;
+    --color-gray-700: #2d2b7c;
+    --color-gray-700t: #2c2b7c98;
+    --color-gray-300: rgba(242, 242, 254, 0.3);
+    --color-blue: #0020d8;
+    --color-blue-dark: #000030;
+    --color-text: #ffffff;
+
+
+    --transition: all 300ms ease;
+    
+    --container-width-lg: 74%;
+    --container-width-md: 88%;
+    --container-width-xl: 92%;
+
+    --form-width: 40%;
+    --form-width-lg: 55%;
+    --form-width-md: 60%;
+    --form-width-sm: 90%;
+
+    --post-width: 60%;
+
+
+
+    --card-border-radius-1: 0.3rem;
+    --card-border-radius-2: 0.5rem;
+    --card-border-radius-3: 0.8rem;
+    --card-border-radius-4: 2rem;
+    --card-border-radius-5: 5rem;
+}
+
+
+
+/*************************************************
+General CSS Code Starts here
+*************************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    appearance: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: Calibri;
+    line-height: 1.6;
+    color: var(--color-blue);
+    overflow-x: hidden;
+    background: var(--color-text);
+    font-size: 0.9rem;
+}
+
+.container {
+    width: var(--container-width-lg);
+    max-width: 1800px;
+    margin-inline: auto;
+}
+
+section {
+    margin-top: 3rem;
+    width: 100vw;
+}
+
+
+/* add to posts on index if there's no carousel post, eg. search results page  */
+
+.section_extra-margin {
+    margin-top: 7rem;
+}
+
+a {
+    color: var(--color-blue-dark);
+    transition: var(--transition);
+    text-decoration: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--color-blue-dark);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+h2 {
+    font-size: 1.7rem;
+    margin: 1rem 0;
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.5rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/*************************************************
+Nav CSS Code Starts here
+*************************************************/
+
+nav {
+    background: var(--color-gray-700);
+    color: #ffffff;
+    width: 100vw;
+    height: 4.5rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: var(--color-text);
+}
+
+nav button {
+    display: none;
+}
+
+.nav_container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+
+.avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.2rem solid var(--color-text);
+}
+
+.nav_profile .avatar img {
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+.nav_logo {
+    font-weight: 600;
+    font-size: 0.8rem;
+    position: relative;
+    left: -2rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+img#logo {
+    width: 8rem;
+}
+
+.nav_items {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+.nav_profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav_profile ul {
+    position: absolute;
+    top: 112%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.4);
+    background: var(--color-gray-900);
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+
+.heading {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+
+
+/************* show nav ul when nav profile is on hover ***************/
+
+.nav_profile:hover>ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav_profile ul li a {
+    padding: 1rem;
+    background: var(--color-gray-900);
+    display: block;
+    width: 100%;
+}
+
+.nav_profile ul li:last-child a {
+    background: var(--color-red);
+    color: var(--color-text);
+}
+
+
+/*************************************************
+CATEGORY BUTTON CSS
+*************************************************/
+
+.category_button {
+    background: var(--color-blue-dark);
+    color: var(--color-text);
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    border-radius: var(--card-border-radius-2);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+    width: 50%;
+}
+
+.category_button:hover {
+    color: var(--color-blue-light);
+}
+
+
+/*************************************************
+GENERAL POST CSS
+*************************************************/
+
+.course_thumbnail {
+    /* border-radius: var(--card-border-radius-5) 0; */
+    border: 0.2rem solid var(--color-gray-900);
+    overflow: hidden;
+    margin-bottom: 1.6rem;
+    border-radius: 1rem;
+    width: 300px;
+    height: 300px;
+}
+
+
+.course_thumbnail img {
+    width: 100%;
+    height: 100%;
+
+}
+
+#course:hover .course_thumbnail img {
+    filter: saturate(0);
+    transition: filter 500ms ease;
+}
+
+.course_author {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+
+
+
+/*************************************************
+CAROUSEL CSS
+*************************************************/
+
+.carousel_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+
+
+
+.carousel .carousel_image {
+    display: none;
+    overflow: hidden;
+    margin-bottom: 1.6rem;
+    border-radius: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    
+}
+
+.carousel .carousel_image img {
+    width: 100%;
+    height: 650px;
+}
+
+#prev {
+    position: absolute;
+    color: white;
+    background: var(--color-primary-light);
+    top: 13%;
+    left: 0;
+    cursor: pointer;
+    padding: 15% 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+#next {
+    position: absolute;
+    color: white;
+    background: var(--color-primary-light);
+    top: 13%;
+    right: 5px;
+    cursor: pointer;
+    padding: 15% 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+#prev:hover,
+#next:hover {
+    background: var(--color-gray-700);
+}
+
+
+
+.active {
+    background-color: black;
+}
+
+.fade {
+    animation: fade 1.5s;
+}
+
+
+@keyframes fade {
+    from {
+        opacity: .4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*************************************************
+Courses Subjects CSS
+*************************************************/
+
+.subjects>h2.heading {
+    margin-top: 6rem;
+
+}
+
+
+.subjects_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+    margin-bottom: 5rem;
+}
+
+
+/*************************************************
+Courses CSS
+*************************************************/
+
+#course h2 {
+    margin-top: 6rem;
+
+}
+
+.slider-wrap {
+    width: 84%;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+}
+
+.courses_container {
+    width: 500%;
+}
+
+.courses_image {
+    display: inline-block;
+    margin: 1rem;
+
+}
+
+
+
+#prev_course {
+    position: relative;
+    color: white;
+    background: var(--color-primary-light);
+    cursor: pointer;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    width: 20%;
+    left: 400px;
+    
+}
+
+#next_course {
+    position:relative;
+    color: white;
+    background: var(--color-primary-light);
+    cursor: pointer;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    width: 20%;
+    left: 100px;
+}
+
+#prev_course:hover,
+#next_course:hover {
+    background: var(--color-gray-700);
+}
+
+/*************************************************
+CATEGORY BUTTONS CSS
+*************************************************/
+
+.category_buttons {
+    padding: 4rem 0;
+    border-top: 2px solid var(--color-gray-900);
+    border-bottom: 2px solid var(--color-gray-900);
+}
+
+.category_buttons-container {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+
+/*************************************************
+FOOTER CSS
+*************************************************/
+
+footer {
+    position: relative;
+    background: var(--color-gray-900);
+    padding: 5rem 0 5rem 0;
+    box-shadow: inset 0 1.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    /*z-index: 0;*/
+}
+
+.footer_socials {
+    margin-inline: auto;
+    width: fit-content;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.footer_socials a {
+    background: var(--color-text);
+    border-radius: 50%;
+    width: 2.3rem;
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer_socials a:hover {
+    background-color: var(--color-blue-dark);
+    color: var(--color-text);
+}
+
+.footer_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6rem;
+}
+
+footer h4 {
+    color: var(--color-text);
+    margin-bottom: 0.6rem;
+}
+
+footer ul li {
+    padding: 0.4rem 0;
+}
+
+footer ul a {
+    color: var(--color-text);
+    opacity: 0.75;
+}
+
+footer ul a:hover {
+    letter-spacing: 0.2rem;
+    opacity: 1;
+}
+
+.footer_copyright {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--color-text);
+    margin-top: 4rem;
+}
+
+
+/*************************************************
+SEARCH BAR CSS
+*************************************************/
+
+.search_bar {
+    margin-top: 7rem;
+}
+
+.search_bar-container {
+    position: relative;
+    width: 30rem;
+    background: var(--color-gray-900);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0.6rem 1rem;
+    border-radius: var(--card-border-radius-2);
+    color: var(--color-gray-300);
+}
+
+.search_bar-container>div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search_bar input {
+    background: transparent;
+    margin-left: 0.7rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.search_bar input::placeholder {
+    color: var(--color-gray-300);
+}
+
+
+/*************************************************
+BUTTON CSS
+*************************************************/
+
+.btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.8rem 1.2rem;
+    background: var(--color-primary);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-blue-dark);
+}
+
+.btn.sm {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+}
+
+.btn-edit {
+    text-align: center;
+    width: 45%;
+    margin: 0.5rem 0;
+    font-weight: 200;
+    padding: 0.8rem;
+}
+
+
+
+
+.btn-lg {
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-blue-dark);
+    background: var(--color-text);
+    border: 0.1rem solid var(--color-blue-dark);
+}
+
+a.btn-lg {
+    text-align: center;
+}
+
+.btn.danger {
+    background: var(--color-red);
+}
+
+.btn-lg:hover,
+.btn:hover,
+.edtBtn:hover,
+.edt-userBtn:hover,
+.edt-adminBtn:hover {
+    background: var(--color-blue);
+    color: var(--color-text);
+}
+
+.edtBtn {
+    background: var(--color-primary);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.edt-userBtn,
+.edt-adminBtn {
+    background: var(--color-primary);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.bt33 {
+  background-color: #000000; 
+  color: white; 
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  width: 45%;
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+   width: fit-content;
+}
+
+/*************************************************
+SINGLE POST CSS
+*************************************************/
+
+.singlepost {
+    margin: 6rem 0 2rem;
+}
+
+.singlepost_container {
+    width: var(--post-width);
+    background: var(--color-gray-700);
+    padding: 1rem 4rem 3rem;
+}
+
+.singlepost .singlepost_thumbnail {
+    margin: 1.5rem 0 1rem;
+}
+
+.singlepost_container h2 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.singlepost_container p,
+.singlepost_container h2 {
+    margin-top: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+
+/*************************************************
+CATEGORY POST CSS
+*************************************************/
+
+.category_title {
+    height: 15rem;
+    margin-top: 4.5rem;
+    background: var(--color-gray-900);
+    display: grid;
+    place-items: center;
+}
+
+
+/*************************************************
+ABOUT PAGE CSS
+*************************************************/
+
+.empty_page {
+    height: 70vh;
+    text-align: center;
+    display: grid;
+    place-content: center;
+}
+
+/*************************************************
+NOTICE POST CSS
+*************************************************/
+
+.notice {
+    margin-top: 8rem;
+    background: var(--color-gray-700);
+    padding: 1rem;
+    color: #ffffff;
+    box-shadow: inset 0 1.5rem 1.5rem rgba(0, 0, 0, 0.2), 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+
+.notice>h2 {
+    color: var(--color-text);
+    margin: 1.5rem auto;
+}
+
+.notice>.notice_container>article h3>a {
+    /* color: var(--color-text); */
+    color: var(--color-blue-light);
+}
+
+.notice_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+
+
+.notice_container>.notice_info>.heading a,
+.post_author_info,
+h5 {
+    color: var(--color-blue-light);
+}
+
+
+
+.notice_container .notice_info>p.notice_body {
+    height: 52px;
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 90%;
+}
+
+.post_author_info {
+    font-size: 1.2rem;
+}
+
+.notice .notice_title.heading {
+    font-size: 1.5rem;
+    text-align: left;
+    height: 40px;
+    
+}
+
+.notice .notice_thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.notice .notice_thumbnail {
+    width: 300px;
+    height: 300px;
+    border: 5px solid var(--color-text);
+    margin-bottom: 1.6rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+
+#session_year {
+    margin-bottom: 1rem;
+}
+
+/*************************************************
+GENERAL MODAL FORM CSS
+*************************************************/
+
+#modal-edit-inactive5,
+#modal-edit-inactive1,
+#modal-edit-inactive,
+#modal-edit-inactive2,
+#modal-edit-inactive4,
+#modal-edit-inactive3 {
+    display: none;
+
+}
+
+#modal-edit-post5,
+#modal-edit,
+#modal-edit-form4,
+#modal-add-form4,
+#modal-add-form5,
+#modal-add,
+#modal-edit-user,
+#modal-edit-admin {
+    display: none;
+}
+
+#modal-edit-inactive5.active2,
+#modal-edit-inactive1.active2,
+#modal-edit-inactive4.active2,
+#modal-edit-inactive.active2,
+#modal-edit-inactive2.active2,
+#modal-edit-inactive3.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 110%;
+    background: #000030;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+#modal-edit.active2,
+#modal-add.active2,
+#modal-edit-user.active3,
+#modal-edit-admin.active {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    color: var(--color-text);
+}
+
+#modal-edit-post5.active2,
+#modal-edit-form4.active2,
+#modal-add-form4.active2,
+#modal-add-form5.active2 {
+    display: block;
+    position: absolute;
+    top: 6rem;
+    z-index: 2;
+    color: var(--color-text);
+}
+
+#modal-edit>.form_section {
+    margin-top: 3rem;
+}
+
+#modal-add>.form_section h2,
+#modal-edit>.form_section h2,
+#modal-add-form4>.form_section h2,
+#modal-add-form5>.form_section h2,
+#modal-edit-form4>.form_section h2 {
+    color: var(--color-text);
+}
+
+
+
+
+/*************************************************
+INVOICE CSS
+*************************************************/
+
+.invoice_section {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    /* margin: 2rem 0 3.5rem; */
+}
+
+.invoice_section h3 {
+    text-align: right;
+    line-height: 1;
+}
+
+.invoice_section img {
+    margin: auto;
+}
+
+.invoice_section h2 {
+    font-size: 1.5rem;
+    margin: auto;
+    text-align: center;
+
+}
+
+.invoice_section-container {
+    width: 45%;
+    margin-top: -7rem;
+
+}
+
+.invoice_section>h2 {
+    text-align: center;
+}
+
+.invoice_section table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--color-blue-dark);
+    font-size: 1rem;
+    margin: 1rem auto;
+}
+
+.invoice_section td,
+th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 0.35rem;
+}
+
+.invoice_section table tr th {
+    background: var(--color-gray-700);
+    color: var(--color-text);
+}
+
+#summary h2 {
+    margin: 1rem auto 2rem;
+}
+
+/*************************************************
+REPORT CSS
+*************************************************/
+
+.report>h2,
+h3 {
+    text-align: center;
+}
+
+.report>table {
+    border-collapse: collapse;
+}
+
+.report>h3 {
+    color: var(--color-text);
+}
+
+/*************************************************
+NEW DASHBOARD CSS
+*************************************************/
+
+.dashboard_cards {
+    color: var(--color-text);
+    width: 100%;
+    height: 300px;
+    margin-top: -4rem;
+    overflow-y: auto;
+}
+
+.dashboard_cards>table {
+    border-collapse: collapse;
+
+}
+
+.dashboard_cards>table tr th,
+.dashboard_cards>table tr td {
+    border: 2px solid white;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    /* gap: 1rem; */
+    margin-top: 1rem;
+    width: 90%;
+
+}
+
+.row.dashboard.two {
+    margin-top: 0;
+}
+
+
+main.report .row {
+    margin: auto;
+}
+.row .cards {
+    display: flex;
+    flex-direction: row;
+    color: var(--color-text);
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+
+.row .cards> .card {
+    border-radius: 2rem;
+    width: 12rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.card.one {
+    background: var(--color-blue-dark);
+}
+
+.card.two {
+    background: var(--color-blue-light);
+}
+
+.card.three {
+    background: var(--color-blue);
+
+}
+
+.card.fourth {
+    background: var(--color-red-dark);
+}
+
+
+.row .cards>.card h3 {
+    color: var(--color-text);
+    text-align: left;
+    font-size: 1rem;
+
+}
+
+.row .cards>.card span {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+
+.row .g-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    color: var(--color-text);
+    width: 100%;
+}
+
+
+.row .g-cards .g-card {
+    background: var(--color-text);
+    width: 100%;
+    height: 22rem;
+    border-radius: 2rem;
+    padding: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.row .cards .g-card>h3 {
+    color: var(--color-blue-dark);
+}
+
+
+
+
+.top_head {
+    margin: 4rem auto;
+    margin-bottom: 6rem;
+}
+
+
+.posts.dash {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.posts>#dashboard_info {
+    width: 100%;
+    margin-top: -6rem;
+}
+
+.posts>#dashboard_info>.card.dashboard {
+    width: 250px;
+    height: 250px;
+}
+
+.notice_title.title {
+    min-height: 80px;
+    text-align: left;
+    margin-top: -3rem;
+    width: 90%;
+    
+}
+
+.notice_title.title a {
+    font-size: 1rem;
+    color: var(--color-blue-light);
+}
+
+#dashboard_info>.notice_body {
+    /* border: 1px solid black; */
+    height: 90px;
+    word-wrap: break-word;
+    width: 79%;
+}
+
+.row>.cards>.f-card {
+    background: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 22rem;
+    border-radius: 2rem;
+    padding: 4rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3.5rem;
+}
+
+
+
+/*************************************************
+CONTACT FORM CSS
+*************************************************/
+
+@media print {
+    body *:not(#invoice-section, #report-section):not(#invoice-section *, #report-section *) {
+        visibility: hidden;
+    }
+
+    #report-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* margin: auto; */
+        color: var(--color-blue-dark);
+        visibility: visible;
+    }
+
+    .container {
+        width: 80%;
+    }
+
+    /* .top_head {
+        margin-top: 2rem;
+    }
+    .invoice_section-container {
+        margin-top: -6rem;
+    } */
+    div.buttons {
+        visibility: hidden;
+    }
+
+    #invoice_section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: var(--color-blue-dark);
+        visibility: visible;
+    }
+
+    #report-section>h2,
+    #report-section table tr th,
+    #invoice-section h2,
+    #invoice-section table tr th {
+        color: #000030;
+    }
+
+}
+
+/* @media print{
+    body *:not(#invoice-section):not(#invoice-section *){
+        visibility: hidden;
+    }
+
+   
+    
+} */
+
+/*************************************************
+CONTACT FORM CSS
+*************************************************/
+
+.contact {
+    display: grid;
+    place-items: center;
+    margin: 1rem auto;
+    background: #ffffff;
+    padding: 2rem 1rem;
+    box-shadow: inset 0 1.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+.contact h2 {
+    text-align: center;
+}
+
+.contact form{
+    margin: 0 2rem;
+}
+
+.contactbtn{
+    color: green;
+}
+
+/*************************************************
+FAQ CSS
+*************************************************/
+.faq_container {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.faq_container h2 {
+    font-size: 2rem;
+}
+
+.faq_container>article .heading,
+.content {
+    text-align: left;
+}
+
+/*************************************************
+REGISTERATION CSS
+*************************************************/
+
+.reg_form {
+    margin-bottom: 0.5rem;
+}
+
+#note,
+#prev_candidate_details,
+#student_id,
+#sch_name {
+    display: none;
+}
+
+/*************************************************
+REPORT CSS
+*************************************************/
+
+#report>form #years,
+#report>form #sessions,
+#report>form #subjects,
+#report>form #others {
+    display: none;
+}
+
+form > .all_report #years,
+form > .all_report #sessions,
+form > .all_report #others {
+    display: none;
+}
+
+/*#gdata_tb{*/
+/*    margin: auto 1rem;*/
+/*}*/
+
+
+#table_body tbody tr td{
+    text-align: left;
+}
+/*************************************************
+DASHBOARD CSS
+*************************************************/
+
+.dashboard {
+    margin-top: 5rem;
+
+}
+
+.dashboard.rel {
+    position: absolute;
+}
+
+.sidebar_toggle {
+    display: none;
+}
+
+.dashboard_container {
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 1rem;
+    background: var(--color-gray-700);
+    padding: 2rem;
+    margin-bottom: 5rem;
+    color: var(--color-text);
+}
+
+
+.dashboard aside a {
+    background: var(--color-blue-dark);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem;
+    color: var(--color-text);
+    font-size: 1.1rem;
+}
+
+.dashboard aside a h5{
+    font-size: 1rem;
+    margin-bottom: 0;
+
+}
+
+.dashboard aside ul li:not(:last-child) a {
+    border-bottom: 1px solid var(--color-gray-900)
+}
+
+.dashboard aside a:hover {
+    background: var(--color-gray-700);
+}
+
+.dashboard aside a.active {
+    background: var(--color-gray-700)
+}
+
+.dashboard main {
+    margin-left: 1.5rem;
+    /* width: 70%; */
+}
+
+.dashboard main h2 {
+    margin: 1rem 0 2rem 0;
+    line-height: 1;
+    color: var(--color-text);
+}
+
+.dashboard main table {
+    width: 100%;
+    text-align: left;
+}
+
+.dashboard main table th {
+    background: var(--color-blue-dark);
+    padding: 0.8rem;
+    color: var(--color-text);
+}
+
+.dashboard main table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--color-blue);
+}
+
+.dashboard main tr:hover td {
+    cursor: default;
+    transition: var(--transition);
+}
+
+.tb-courses th:last-child,
+td:last-child {
+    text-align: center;
+}
+
+.tb-courses tr:last-child {
+    background: #000030;
+    font-weight: bold;
+}
+
+.tb-courses tr:last-child:hover td {
+    background: none;
+    color: var(--color-text);
+}
+
+.tb-courses tr:last-child td .btn:hover {
+    background: var(--color-text);
+    color: var(--color-blue-dark);
+
+}
+
+th#fee {
+    text-align: center;
+}
+
+tbody#reg td {
+    text-align: left;
+}
+
+.dashboard #user>table td:last-child {
+    text-align: left;
+}
+
+.m-users aside h5 {
+    display: none;
+}
+
+.m-users aside a {
+    width: 30%;
+    padding: 1.6rem;
+    color: var(--color-text);
+}
+
+.m-users main {
+    margin-left: -9rem;
+}
+
+#error-txt {
+    color: #721c24;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #f5c6cb;
+    display: none;
+}
+.error-txt {
+    color: #721c24;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #f5c6cb;
+    display: none;
+}
+
+.error-txt.matched {
+    color        : #1c7236;
+    background   : #d7f8e9;
+    padding      : 8px 10px;
+    border       : 1px solid #c6f5ed;
+}
+
+.message {
+    display: none;
+}
+
+.message.error {
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: var(--card-border-radius-2);
+    display: block;
+    background: var(--color-red-light);
+    color: var(--color-red);
+}
+
+.message.success {
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: var(--card-border-radius-2);
+    display: block;
+    background: var(--color-green-light);
+    color: var(--color-green);
+}
+
+.hidden {
+    display: hidden;
+}
+
+
+.all_data {
+    text-align: center;
+}
+
+.all_data table {
+    border-collapse: collapse;
+    margin: auto;
+    text-align: left;
+    color: black;
+}
+
+.all_data table tr,
+.all_data table td {
+    border: 1px solid black;
+}
+
+#std_passport {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+main.user-dashbaord>#title {
+    text-align: center;
+}
+
+.control-four {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* gap: 0.5rem; */
+    /* margin: 1rem 0; */
+
+}
+
+input.charges {
+    width: 12rem;
+}
+
+#apply_coupon{
+    width: 40%;
+    padding: 0.5rem;
+    height: 60%;
+    margin-top: 2rem;
+}
+
+
+
+.all_report{
+    width: 40%;
+    margin: auto 4rem;
+}
